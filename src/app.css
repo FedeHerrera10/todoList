@@ -1,0 +1,21 @@
+body {
+  background: rgb(58, 139, 163);
+  background: linear-gradient(0deg, rgb(91 189 245) 0%, rgb(27 99 148) 100%);
+}
+
+.card {
+  box-shadow: 1px 1px 10px gray;
+}
+
+.card-body h1 {
+  color: #424242;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+table {
+  border-radius: 4px;
+}

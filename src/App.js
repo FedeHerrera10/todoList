@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import Formulario from './components/Formulario'
+import Listado from './components/Listado';
+import './app.css';
+class App extends Component{
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  constructor(props){
+    super(props)
+    this.state=({cargos:[]})
+    this.agregarCargos = this.agregarCargos.bind(this);
+  }
+
+
+  agregarCargos (cargos) {
+    this.setState({
+        cargos: cargos
+        }
+    ); 
+
 }
+
+  render(){
+    return (
+      <div className="container mt-5">
+        <Formulario
+          agregarCargos = {this.agregarCargos}
+          cargos = {this.state.cargos}
+          
+        />
+
+        <Listado
+        agregarCargos = {this.agregarCargos}
+        cargos = {this.state.cargos}
+        />
+        
+      </div>
+      );
+    }
+  }
 
 export default App;
