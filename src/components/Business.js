@@ -63,7 +63,7 @@ const Business = () =>{
         saveBusinessArr([...business,objBusiness]);
     }
 
-    /*--Elimina un pais y escribe LS */
+    /*--Elimina una empresa  y escribe LS */
     const deleteBusiness = (IdBusiness) =>{
        saveLoading(true);
        const result = filterData('business',IdBusiness);

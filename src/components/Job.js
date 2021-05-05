@@ -33,7 +33,7 @@ const Job = () =>{
         writeJob();
     },[jobs])
 
-    /* Actualiza el objBusiness(empresa) en el componente */
+    /* Actualiza el objJob(puesto) en el componente */
     const updateState = (e) => {
         saveError(false);
         saveJob({...objJob,[e.target.name] :e.target.value})
@@ -51,7 +51,7 @@ const Job = () =>{
         saveJobs([...jobs,objJob]);
     }
 
-    /*--Elimina un pais y escribe LS */
+    /*--Elimina un job y escribe LS */
      const deleteJob = (IdJob) =>{
        saveLoading(true);
        const result = filterData('jobs',IdJob);
