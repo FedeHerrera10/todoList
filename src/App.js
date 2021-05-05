@@ -1,40 +1,32 @@
-import { Component } from 'react';
-import Formulario from './components/Formulario'
-import Listado from './components/Listado';
 import './app.css';
-class App extends Component{
+import { Component ,Fragment} from 'react';
+import {Switch, Route } from "react-router-dom";
+import Business from './components/Business'
+import Home from './components/views/Home';
+import Country from './components/Country';
+import City from './components/City';
+import Header from './components/views/Header';
+import Job from './components/Job';
 
+class App extends Component{
   constructor(props){
     super(props)
-    this.state=({cargos:[]})
-    this.agregarCargos = this.agregarCargos.bind(this);
   }
-
-
-  agregarCargos (cargos) {
-    this.setState({
-        cargos: cargos
-        }
-    ); 
-
-}
 
   render(){
     return (
-      <div className="container mt-5">
-        <Formulario
-          agregarCargos = {this.agregarCargos}
-          cargos = {this.state.cargos}
-          
-        />
+      <Fragment>
+        <Header/>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/empresas" component={Business}/>
+        <Route path="/paises" component={Country}/>
+        <Route path="/ciudades" component={City}/>
+        <Route path="/puestos" component={Job}/>
+      </Switch>
+        </Fragment>
 
-        <Listado
-        agregarCargos = {this.agregarCargos}
-        cargos = {this.state.cargos}
-        />
-        
-      </div>
-      );
+      )
     }
   }
 
