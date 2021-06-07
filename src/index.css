@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Reset */
+:root {
+  --color-primario: #070b21;
+  --color-hover: #1d76fb;
+}
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.container-app {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/*-- HEADER --*/
+.header {
+  height: 80px;
+  background-color: var(--color-primario);
+}
+.btn-menu {
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.btn-purple {
+  background-color: var(--color-primario);
+  color: white;
+  outline: none;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: var(--color-hover);
+  color: white;
+}
+
+/* -- SIDEBAR --*/
+.sidebar {
+  width: 350px;
+  background-color: var(--color-primario);
+  height: 100vh;
+  position: fixed;
+  margin-left: -400px;
+  transition: all 0.5s ease-in-out;
+  z-index: 100;
+}
+
+.sidebar ul li {
+  font-size: 18px;
+  transition: background-color 0.4s ease-in-out;
+  border-radius: 5px;
+}
+
+.sidebar ul li:hover {
+  background-color: var(--color-hover);
+}
+
+.sidebar-toggle {
+  margin-left: 0;
+}
+
+/* -- TABLE --*/
+.thead-black {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+/* -- MEDIA QUERYS --*/
+@media screen and (max-width: 768px) {
+  .sidebar-toggle {
+    margin-left: 0;
+    width: 100%;
+  }
 }

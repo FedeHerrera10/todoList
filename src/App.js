@@ -1,29 +1,42 @@
 import './app.css';
 import { Component ,Fragment} from 'react';
 import {Switch, Route } from "react-router-dom";
-import Business from './components/Business'
+import Empresas from './components/empresas/Empresas';
 import Home from './components/views/Home';
-import Country from './components/Country';
-import City from './components/City';
+import PaisesState from './context/paises/paisesState';
+import Paises from './components/paises/Paises';
 import Header from './components/views/Header';
-import Job from './components/Job';
+import Ciudades from './components/ciudades/Ciudades';
+import CiudadesState from './context/ciudades/ciudadesState';
+import EmpresaState from './context/empresa/empresasState';
+import PuestosState from './context/puestos/puestosState';
+import Puestos from './components/puestos/Puestos';
 
 class App extends Component{
   constructor(props){
     super(props)
+    this.props = props;
   }
 
   render(){
     return (
       <Fragment>
         <Header/>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/empresas" component={Business}/>
-        <Route path="/paises" component={Country}/>
-        <Route path="/ciudades" component={City}/>
-        <Route path="/puestos" component={Job}/>
-      </Switch>
+        <PaisesState>
+          <CiudadesState>
+            <EmpresaState>
+              <PuestosState>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/empresas" component={Empresas}/>
+            <Route path="/paises" component={Paises}/>
+            <Route path="/ciudades" component={Ciudades}/>
+            <Route path="/puestos" component={Puestos}/>
+          </Switch>
+            </PuestosState>
+          </EmpresaState>
+          </CiudadesState>
+      </PaisesState>
         </Fragment>
 
       )

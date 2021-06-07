@@ -10,7 +10,21 @@ export const  obtenerDatosLocalStorage = (item) => {
     }
 
 export const insertarDatosLocalStorage = (item,data) => {
-        localStorage.setItem(item,JSON.stringify(data));
+        const resultado=obtenerDatosLocalStorage(item)
+        const datos = [...resultado,data]; 
+        localStorage.setItem(item,JSON.stringify(datos));
+}
+
+export const borrarItemLocalStorage = (item,id) => {
+    const resultado=obtenerDatosLocalStorage(item)
+    const datos = resultado.filter(res => (res.id !== id));
+    localStorage.setItem(item,JSON.stringify(datos));
+}
+
+export const actualizarItemLocalStorage = (item, data) => {
+    const resultado=obtenerDatosLocalStorage(item)
+    const datos = resultado.map(res => (res.id === data.id ? data : res));
+    localStorage.setItem(item,JSON.stringify(datos));
 }
 
 export const filterData = (item,filter)  => {
